@@ -9,6 +9,7 @@ beforeAll(async () => {
 });
 
 afterEach(async () => {
+  // Clear the database after every test so they don't interfere with each other
   await User.deleteMany();
 });
 
@@ -47,5 +48,51 @@ describe('POST /api/auth/register', () => {
 
     expect(res.statusCode).toEqual(400);
     expect(res.body.message).toMatch(/already exists/i);
+  });
+});
+
+// --- NEW LOGIN TESTS START HERE ---
+describe('POST /api/auth/login', () => {
+  it('should login an existing user and return a token', async () => {
+    // 1. Setup: Create a user in the DB manually
+    await User.create({
+      username: 'loginuser',
+      email: 'login@shop.com',
+      password: 'password123'
+    });
+
+    // 2. Action: Try to log in with correct credentials
+    const res = await request(app)
+      .post('/api/auth/login')
+      .send({
+        email: 'login@shop.com',
+        password: 'password123'
+      });
+
+    // 3. Assertion: Should succeed
+    expect(res.statusCode).toEqual(200);
+    expect(res.body).toHaveProperty('token');
+    expect(res.body.email).toEqual('login@shop.com');
+  });
+
+  it('should reject incorrect passwords', async () => {
+    // 1. Setup: Create a user
+    await User.create({
+      username: 'wrongpass',
+      email: 'wrong@shop.com',
+      password: 'password123'
+    });
+
+    // 2. Action: Try to log in with WRONG password
+    const res = await request(app)
+      .post('/api/auth/login')
+      .send({
+        email: 'wrong@shop.com',
+        password: 'wrongpassword' // Intentional mismatch
+      });
+
+    // 3. Assertion: Should fail
+    expect(res.statusCode).toEqual(400); // 400 Bad Request or 401 Unauthorized
+    expect(res.body.message).toMatch(/invalid credentials/i);
   });
 });
