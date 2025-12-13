@@ -11,7 +11,7 @@ beforeAll(async () => {
 });
 
 afterEach(async () => {
-  // Clear collections completely after each test
+
   await Sweet.deleteMany({});
   await User.deleteMany({});
 });
@@ -23,9 +23,9 @@ afterAll(async () => {
 describe('Sweets API', () => {
   let token;
 
-  // Helper: Create Admin User & Token
+  //Create Admin User & Token
   beforeEach(async () => {
-    // FIX: Ensure no user exists before creating one to prevent duplicate key errors
+    //Ensure no user exists before creating one to prevent duplicate key errors
     await User.deleteMany({}); 
 
     const user = await User.create({
