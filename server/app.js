@@ -1,5 +1,5 @@
 const express = require('express');
-const cors = require('cors'); // npm install cors
+const cors = require('cors'); 
 const dotenv = require('dotenv');
 const connectDB = require('./config/db');
 
@@ -17,8 +17,6 @@ const app = express();
 // Middleware
 app.use(express.json());
 
-// CORS Configuration
-// This allows your Vercel frontend to communicate with this Render backend
 app.use(cors()); 
 
 // Routes
