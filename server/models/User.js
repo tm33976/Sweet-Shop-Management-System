@@ -8,6 +8,7 @@ const UserSchema = new mongoose.Schema({
   isAdmin: { type: Boolean, default: false },
 });
 
+
 UserSchema.pre("save", async function () {
   if (!this.isModified("password")) return;
   const salt = await bcrypt.genSalt(10);
