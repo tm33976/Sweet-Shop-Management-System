@@ -1,23 +1,28 @@
-require('dotenv').config(); 
 const express = require('express');
-const cors = require('cors');
+const cors = require('cors'); // npm install cors
+const dotenv = require('dotenv');
+const connectDB = require('./config/db');
 
-const authRoutes = require('./routes/authRoutes');
-const sweetRoutes = require('./routes/sweetRoutes');
+// Load env vars
+dotenv.config();
+
+// Connect to Database
+// (Skip connection during tests to avoid conflicts)
+if (process.env.NODE_ENV !== 'test') {
+  connectDB();
+}
 
 const app = express();
 
 // Middleware
-app.use(cors());
 app.use(express.json());
 
-// Routes
-app.use('/api/auth', authRoutes);
-app.use('/api/sweets', sweetRoutes); 
+// CORS Configuration
+// This allows your Vercel frontend to communicate with this Render backend
+app.use(cors()); 
 
-// Health Check
-app.get('/health', (req, res) => {
-  res.status(200).json({ status: 'OK', message: 'Sweet Shop API is running' });
-});
+// Routes
+app.use('/api/auth', require('./routes/authRoutes'));
+app.use('/api/sweets', require('./routes/sweetRoutes'));
 
 module.exports = app;
