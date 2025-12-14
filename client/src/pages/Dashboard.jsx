@@ -112,7 +112,7 @@ const Dashboard = () => {
       <nav className="bg-white shadow-md p-4 sticky top-0 z-20">
         <div className="container mx-auto flex justify-between items-center">
           <h1 className="text-2xl font-bold text-blue-900 tracking-tight flex items-center gap-2">
-            🍬 Sweet Shop{" "}
+             Sweet Shop{" "}
             <span className="text-xs text-gray-400 font-normal uppercase tracking-widest border-l pl-2 ml-2">
               {user?.isAdmin ? "Manager Portal" : "Store"}
             </span>
