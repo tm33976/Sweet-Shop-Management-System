@@ -1,9 +1,16 @@
-# Sweet Shop Management System
 
-A full-stack, responsive **Single Page Application (SPA)** for managing a sweet shop’s inventory and sales.  
+#  Sweet Shop Management System
+
+A full-stack, responsive **Single Page Application (SPA)** for managing a sweet shop’s inventory and sales.
 Built using **Test-Driven Development (TDD)** and modern web technologies.
 
 This project focuses on **clean architecture, secure authentication, role-based access control, and full backend test coverage**.
+
+---
+
+## 🔗 Live Links
+- **Public Repository:** https://github.com/tm33976/Sweet-Shop-Management-System
+- **Live Demo:** https://sweet-shop-management-system-henna-sigma.vercel.app/
 
 ---
 
@@ -39,6 +46,46 @@ This project focuses on **clean architecture, secure authentication, role-based 
 
 ---
 
+## 📸 Application Screenshots
+
+### User Dashboard
+![User Dashboard](./app-images//user-dasboard.png)
+
+### Admin Manager Portal
+![Admin Dashboard](./app-images//admin-portal.png)
+
+### Add Inventory Modal
+![Add Inventory](./app-images//inventory-modal.png)
+
+### Delete Confirmation
+![Delete Modal](./app-images/delete-modal.png)
+
+---
+
+## 🧪 Test Execution Report
+
+The backend is fully tested using **Jest** and **Supertest** following strict TDD principles.
+
+- **Coverage:** 100% of Backend API Endpoints
+- **Status:** All tests passed
+## Report-1
+![Test Results Screenshot](./app-images/test-report-1.png)
+## Report-2
+![Test Results Screenshot](./app-images/test-report-2.png)
+
+
+```text
+PASS  tests/auth.test.js (9.367 s)
+PASS  tests/sweets.test.js (10.133 s)
+
+Test Suites: 2 passed, 2 total
+Tests:       12 passed, 12 total
+Snapshots:   0 total
+Time:        10.916 s
+```
+
+---
+
 ## 🛠️ Tech Stack
 
 ### Frontend
@@ -59,7 +106,6 @@ This project focuses on **clean architecture, secure authentication, role-based 
 ### Testing
 - Jest
 - Supertest
-- 100% backend endpoint coverage
 
 ---
 
@@ -69,110 +115,69 @@ This project focuses on **clean architecture, secure authentication, role-based 
 - Node.js v14+
 - MongoDB (Local or Atlas)
 
----
-
-### Clone the Repository
+### 1. Clone the Repository
 ```bash
 git clone https://github.com/tm33976/Sweet-Shop-Management-System.git
-cd sweet-shop-management
+cd Sweet-Shop-Management-System
 ```
 
----
-
-### Backend Setup
+### 2. Backend Setup
 ```bash
 cd server
 npm install
 ```
 
-Create a `.env` file in the `server` directory:
-
+Create a `.env` file in `server`:
 ```env
 PORT=5000
 JWT_SECRET=your_super_secret_key_change_this
-
-# Live Database (Used by the App)
 MONGO_URI=mongodb://localhost:27017/sweetshop_live
-
-# Test Database (Used by npm test - This gets wiped automatically)
 MONGO_URI_TEST=mongodb://localhost:27017/sweetshop_test_execution
 ```
 
 Start the server:
-
 ```bash
 npm start
 ```
 
----
-
-### Frontend Setup
+### 3. Frontend Setup
 ```bash
 cd client
 npm install
 ```
 
-Create a `.env` file in the `client` directory:
-
+Create a `.env` file in `client`:
 ```env
 VITE_API_URL=http://localhost:5000/api
 ```
 
-Start the React app:
-
+Start the app:
 ```bash
 npm run dev
 ```
 
-App runs at:  
-```
-http://localhost:5173
-```
-
 ---
 
-## 👑 How to Create an Admin User
+## 👑 Create an Admin User
 
-By default, all users register as **Customers**.
-
-To access the **Admin Dashboard**:
-
-1. Register a new user in the app
-2. Open **MongoDB Compass**
+1. Register a user in the app
+2. Open MongoDB Compass
 3. Connect to `sweetshop_live`
-4. Open the `users` collection
-5. Find your user document
-6. Set `isAdmin` to `true` (Boolean)
-7. Refresh the app
-
-Admin controls will now be visible.
-
----
-
-## 🧪 Running Tests
-
-This project follows **Test-Driven Development (TDD)** and maintains **100% backend test coverage**.
-
-```bash
-cd server
-npm test
-```
-
-**Note:**  
-Tests use a separate database (`sweetshop_test_execution`) to avoid corrupting live data.
+4. Open `users` collection
+5. Set `isAdmin: true`
+6. Refresh the app
 
 ---
 
 ## 🤖 AI Usage Disclosure
 
-AI tools (**Gemini**) were used to accelerate development:
+AI tools (Gemini) were used to:
+- Scaffold Jest & Supertest tests
+- Debug MongoDB duplicate key issues
+- Generate regex logic for search
+- Assist with Tailwind UI structure
 
-- Jest & Supertest scaffolding
-- Debugging MongoDB test isolation issues
-- Regex-based search logic
-- Tailwind CSS component scaffolding
-
-AI assisted with **syntax and configuration only**  not system architecture or business logic.
+AI assisted with syntax and configuration only  **not architecture or business logic**.
 
 ---
 
@@ -192,10 +197,6 @@ AI assisted with **syntax and configuration only**  not system architecture or b
 
 ---
 
-
-
 ## 👨‍💻 Author
 **Tushar Mishra**  
- tm3390782@gmail.com
-
----
+📧 tm3390782@gmail.com
