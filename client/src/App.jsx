@@ -2,8 +2,6 @@ import { useContext } from 'react'; // <--- FIX: Import useContext from 'react'
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
-// Import AuthProvider and AuthContext correctly
 import AuthContext, { AuthProvider } from './context/AuthContext'; 
 
 import Register from './pages/Register';
