@@ -9,7 +9,7 @@ This project focuses on **clean architecture, secure authentication, role-based 
 ---
 
 ## 🔗 Live Links
-- **Public Repository:** https://github.com/tm33976/Sweet-Shop-Management-System
+
 - **Live Demo:** https://sweet-shop-management-system-henna-sigma.vercel.app/
 
 ---
