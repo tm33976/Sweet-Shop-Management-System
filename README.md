@@ -168,17 +168,17 @@ npm run dev
 6. Refresh the app
 
 ---
-
 ## 🤖 AI Usage Disclosure
 
-AI tools (Gemini) were used to:
-- Scaffold Jest & Supertest tests
-- Debug MongoDB duplicate key issues
-- Generate regex logic for search
-- Assist with Tailwind UI structure
+AI tools (**Gemini**) were leveraged to accelerate development while adhering to TDD principles:
 
-AI assisted with syntax and configuration only  **not architecture or business logic**.
+- **API Development:** Used to generate initial Express.js route handlers and controller skeletons.
+- **Jest & Supertest Scaffolding:** Generated boilerplate structure for integration tests to focus on defining test cases.
+- **Debugging:** Assisted in resolving MongoDB "Duplicate Key" errors by suggesting robust database cleanup strategies.
+- **Regex Logic:** Provided optimal Mongoose syntax for case-insensitive search.
+- **Frontend Styling:** Generated initial Tailwind CSS structures for layouts and modals.
 
+AI acted as a co-pilot for syntax, boilerplate, and configuration, but **did not design the system architecture or core business logic.**
 ---
 
 ## 📝 API Endpoints
