@@ -14,7 +14,7 @@ export const AuthProvider = ({ children }) => {
       if (storedUser) {
         setUser(JSON.parse(storedUser));
       }
-      setLoading(false); // We are done checking
+      setLoading(false); 
     };
 
     checkLoggedIn();

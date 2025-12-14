@@ -28,7 +28,7 @@ const Login = () => {
       // Save user data (including token) to context
       login(res.data);
       toast.success('Logged in successfully!');
-      navigate('/'); // Redirect to dashboard
+      navigate('/'); 
     } catch (error) {
       toast.error(error.response?.data?.message || 'Login failed');
     }
